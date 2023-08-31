@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: serve-flows
+  name: serve-flows
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: serve-flows
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: serve-flows
+    spec:
+      containers:
+      - image: serve-flows:latest
+        imagePullPolicy: Never
+        name: serve-flows
+        resources:
+          limits:
+            cpu: 500m
+            memory: 500Mi
+          requests:
+            cpu: 500m
+            memory: 500Mi
+        env:
+          - name: PREFECT_API_URL
+            valueFrom:
+              secretKeyRef:
+                name: prefect-api-url
+                key: key
+          - name: PREFECT_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: prefect-api-key
+                key: key
+status: {}
