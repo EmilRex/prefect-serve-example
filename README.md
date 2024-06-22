@@ -1,10 +1,10 @@
-# serve-demo
+# prefect-serve-example
 
-Demo of using `prefect.serve` with Kubernetes.
+Example of using `prefect.serve` with Kubernetes.
 
 ## Getting Started
 
-The demo assumes you have a Kubernetes cluster running locally. Tested with Docker-Desktop provided Kubernetes.
+The example assumes you have a Kubernetes cluster running locally. Tested with Docker-Desktop provided Kubernetes.
 
 ```bash
 docker build . -t serve-flows:latest
